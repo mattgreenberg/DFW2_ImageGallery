@@ -10,6 +10,7 @@ var unspalsh = (function(){
 	*/
 	function Unspalsh(){
 		this.API = 'https://api.unsplash.com/';
+		this.clientId = '1b9b505c574eeaf4e4886e38a603eb5c9a4a7cf9cd46a9426d1ec0c9a5a1abd2';
 	};
 
 	/*
@@ -28,6 +29,10 @@ var unspalsh = (function(){
 				encodedString += encodeURI(prop + '=' + params[prop]);
 			}
 		}
+		if(encodedString.length>0){
+			encodedString += '&';
+		}
+		encodedString += 'client_id=' + this.client_id;
 		return encodedString;
 	};
 
@@ -37,8 +42,8 @@ var unspalsh = (function(){
 		@param uriComponent - String - An encoded URI component
 		@returns - String - A URL for an API request
 	*/
-	Unspalsh.prototype.makeUrl = function(uriComponent, next){
-		return this.API + uriComponent
+	Unspalsh.prototype.makeUrl = function(uriComponent){
+		return this.API + uriComponent;
 	};
 
 	/*
@@ -59,6 +64,8 @@ var unspalsh = (function(){
 		};
 		xhr.send();
 	};
+
+
 
 	/*
 		Return a 'new' Unspalsh library object

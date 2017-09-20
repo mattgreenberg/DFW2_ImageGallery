@@ -37,8 +37,27 @@ var unspalsh = (function(){
 		@param uriComponent - String - An encoded URI component
 		@returns - String - A URL for an API request
 	*/
-	Unspalsh.prototype.makeUrl = function(uriComponent){
+	Unspalsh.prototype.makeUrl = function(uriComponent, next){
 		return this.API + uriComponent
+	};
+
+	/*
+		Method Name : GET()
+		Description : Simple AJAX style GET request
+		@param url - String - A Url you wish to GET
+		@param next - Function - A callback function that runs when the request is done
+	*/
+	Unsplash.prototype.GET = function(url, next){
+		var xhr = new XMLHttpRequest();
+		xhr.open('GET', url);
+		xhr.onload = function(){
+			if(xhr.status === 200){
+				next(xhr.responseText, xhr.status);
+			} else {
+				next(false, xhr.status);
+			}
+		};
+		xhr.send();
 	};
 
 	/*

@@ -3,12 +3,12 @@
 	Author : Matt Greenberg
 */
 
-var unspalsh = (function(){
+var minsplash = (function(){
 
 	/*
 		DEFAULT CONSTRUCTOR
 	*/
-	function Unspalsh(){
+	function Minsplash(){
 		this.API = 'https://api.unsplash.com/';
 		this.clientId = '1b9b505c574eeaf4e4886e38a603eb5c9a4a7cf9cd46a9426d1ec0c9a5a1abd2';
 	};
@@ -19,7 +19,7 @@ var unspalsh = (function(){
 		@param params - Object - A list of key value pairs
 		@returns - String - An encoded URI compontent
 	*/
-	Unspalsh.prototype.encodeParams = function(params){
+	Minsplash.prototype.encodeParams = function(params){
 		var encodedString = '';
 		for(var prop in params){
 			if(params.hasOwnProperty(prop)){
@@ -32,8 +32,8 @@ var unspalsh = (function(){
 		if(encodedString.length>0){
 			encodedString += '&';
 		}
-		encodedString += 'client_id=' + this.client_id;
-		return encodedString;
+		encodedString += 'client_id=' + this.clientId;
+		return '?' + encodedString;
 	};
 
 	/*
@@ -42,12 +42,13 @@ var unspalsh = (function(){
 		@param url - String - A Url you wish to GET
 		@param next - Function - A callback function that runs when the request is done
 	*/
-	Unsplash.prototype.GET = function(url, next){
+	Minsplash.prototype.GET = function(url, next){
 		var xhr = new XMLHttpRequest();
 		xhr.open('GET', url);
 		xhr.onload = function(){
 			if(xhr.status === 200){
-				next(xhr.responseText, xhr.status);
+				var data = JSON.parse(xhr.responseText);
+				next(data, xhr.status);
 			} else {
 				next(false, xhr.status);
 			}
@@ -56,14 +57,22 @@ var unspalsh = (function(){
 	};
 
 	/*
-		Method Name :
-	*/	
-
-
+		Method Name : photoSearch
+		Description : Search for photos
+		@param term - String - A term to your watch to search for
+		@param callback - Function - A callback that runs when the request is done
+	*/
+	Minsplash.prototype.photoSearch = function(term, callback){
+		var uri = this.encodeParams({
+			query: term
+		});
+		var Url = this.API + 'search/photos' + uri;
+		this.GET(Url, callback);
+	}
 
 	/*
 		Return a 'new' Unspalsh library object
 	*/
-	return new Unspalsh();
+	return new Minsplash();
 
-});
+})();

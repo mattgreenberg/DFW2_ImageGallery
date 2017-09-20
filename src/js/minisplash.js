@@ -37,16 +37,6 @@ var unspalsh = (function(){
 	};
 
 	/*
-		Method Name : makeUrl()
-		Description : Takes a URI component and returns the concatenated URL for an API request
-		@param uriComponent - String - An encoded URI component
-		@returns - String - A URL for an API request
-	*/
-	Unspalsh.prototype.makeUrl = function(uriComponent){
-		return this.API + uriComponent;
-	};
-
-	/*
 		Method Name : GET()
 		Description : Simple AJAX style GET request
 		@param url - String - A Url you wish to GET
@@ -64,6 +54,10 @@ var unspalsh = (function(){
 		};
 		xhr.send();
 	};
+
+	/*
+		Method Name :
+	*/	
 
 
 

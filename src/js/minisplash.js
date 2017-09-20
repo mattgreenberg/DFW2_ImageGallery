@@ -14,7 +14,7 @@ var unspalsh = (function(){
 
 	/*
 		Method Name : encodeParams()
-		Description : 
+		Description : Takes an object of key value pairs and returns and encoded URI component.
 		@param params - Object - A list of key value pairs
 		@returns - String - An encoded URI compontent
 	*/
@@ -29,6 +29,16 @@ var unspalsh = (function(){
 			}
 		}
 		return encodedString;
+	};
+
+	/*
+		Method Name : makeUrl()
+		Description : Takes a URI component and returns the concatenated URL for an API request
+		@param uriComponent - String - An encoded URI component
+		@returns - String - A URL for an API request
+	*/
+	Unspalsh.prototype.makeUrl = function(uriComponent){
+		return this.API + uriComponent
 	};
 
 	/*

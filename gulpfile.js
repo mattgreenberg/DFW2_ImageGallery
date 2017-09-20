@@ -7,6 +7,7 @@ const AUTOPREFIXER = require('autoprefixer');
 const CONCAT = require('gulp-concat');
 const RENAME = require('gulp-rename');
 const UGLIFY = require('gulp-uglify');
+const CLEANCSS = require('gulp-clean-css');
 
 // Default Task
 GULP.task('default', ['watch']);
@@ -20,6 +21,12 @@ GULP.task('scss', ()=>{
 	return GULP.src('./src/scss/*.scss')
 	.pipe(SASS())
 	.pipe(POSTCSS(processor))
+	.pipe(GULP.dest('./dist/css'))
+	.pipe(CLEANCSS({debug: true}, (details)=>{
+		console.log(`${details.name} : ${details.stats.originalSize}`);
+		console.log(`${details.name} : ${details.stats.minifiedSize}`);
+	}))
+	.pipe(RENAME('main.min.css'))
 	.pipe(GULP.dest('./dist/css'))
 	.pipe(BROWSERSYNC.reload({
 		stream: true

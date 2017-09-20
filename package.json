@@ -1,0 +1,19 @@
+{
+  "name": "dfws2gallery",
+  "version": "1.0.0",
+  "description": "A responsive photo gallery with nifty animations",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mattgreenberg/DFW2_ImageGallery.git"
+  },
+  "author": "Matt Greenberg",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mattgreenberg/DFW2_ImageGallery/issues"
+  },
+  "homepage": "https://github.com/mattgreenberg/DFW2_ImageGallery#readme"
+}

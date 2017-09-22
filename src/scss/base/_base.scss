@@ -1,0 +1,13 @@
+html, body{
+	font-size: 62.5%; // 1em = 10px
+	background: $main-bkg-color;
+	min-width: 320px;
+}
+*{
+	box-sizing: border-box;
+}
+.clearfix:after{
+	content: "";
+	display: table;
+	clear: both;
+}

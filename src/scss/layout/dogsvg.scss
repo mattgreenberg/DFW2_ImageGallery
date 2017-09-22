@@ -3,17 +3,19 @@
 #dog{
 	width: 3em;
 	display: block;
-	margin: 0 auto;
+	margin: 0 auto 0.5em auto;
 	overflow: visible;
-	&:hover #left-ear{
-		transform: rotate(30deg) translate(20%, -38%);
-	}
-	&:hover #right-ear{
-		transform: rotate(-30deg) translate(-20%, -38%);
-	}
 }
 #left-ear,
 #right-ear{
 	transition: all .5s ease-in-out;
 	transform-origin: 50% 0;
+}
+header:hover{
+	#left-ear{
+		transform: rotate(30deg) translate(20%, -38%);		
+	}
+	#right-ear{
+		transform: rotate(-30deg) translate(-20%, -38%);
+	}	
 }

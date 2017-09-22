@@ -1,6 +1,12 @@
 header{
 	padding: 5em 0 2em 0;
 	user-select: none;
+	@include mq(medium){
+		font-size: 1.25em;
+	}
+	@include mq(large){
+		font-size: 1.5em;
+	}
 }
 #logo{
 	font-family: $logofont;

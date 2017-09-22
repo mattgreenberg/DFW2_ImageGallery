@@ -85,6 +85,12 @@ header {
      -moz-user-select: none;
       -ms-user-select: none;
           user-select: none; }
+  @media (min-width: 35em) {
+    header {
+      font-size: 1.25em; } }
+  @media (min-width: 50em) {
+    header {
+      font-size: 1.5em; } }
 
 #logo {
   font-family: "voltage", Snell Roundhand, cursive;

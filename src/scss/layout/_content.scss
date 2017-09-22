@@ -2,43 +2,35 @@
 	display: block;
 	margin: 0 auto;
 	max-width: 1200px;
+	display: flex;
+	flex-wrap: wrap;
 }
 .frame{
 	position: relative;
 	margin-bottom: 5em;
 	border: 2px dotted #000;
+	overflow: hidden;
+	width: 100%;
 	@include mq(medium){
 		width: 48%;
-		margin: 1% 1%;
-		float: left;
+		margin: 1%;
 	}
 	@include mq(large){
-		width: 30%;
+		width: 31%;
+		margin: 1%;
 	}
 }
-@include mq(medium){
-	.frame:nth-child(odd){
-		clear: both;
-	}
-	.frame:last-child{
-		clear: both;
-		float: none;
+.frame:last-child{
+	@include mq(medium){
 		margin: 1% auto;
 	}
-}
-@include mq(large){
-	.frame:nth-child(odd){
-		clear: none;
-	}
-	.frame:last-child{
-		clear: none;
-		float: left;
+	@include mq(large){
 		margin: 1% 1%;
 	}
 }
-picture img{
+.frame img{
 	width: 100%;
-	height: (3 / 2) * 100%;
+	display: block;
 }
 .overlay h2,
 .overlay .likes{
@@ -83,5 +75,15 @@ picture img{
 			transform: translateY(-50%);
 		}
 	}
+	@include mq(medium){
+		position: absolute;
+		background: rgba(255,255,255,0.8);
+		width: 100%;
+		transform: translateY(100%);
+		transition: all 0.2s ease-in-out;
+	}
+}
+.frame:hover .overlay{
+	transform: translateY(0);
 }
 

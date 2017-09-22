@@ -1,7 +1,6 @@
 // Utilities
 @import 'util/vars';
 @import 'util/mixins';
-@import 'util/placeholders';
 
 // Base Styles
 @import 'base/reset';
@@ -10,3 +9,4 @@
 // Layout Styles
 @import 'layout/dogsvg';
 @import 'layout/header';
+@import 'layout/content';

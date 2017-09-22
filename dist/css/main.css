@@ -80,7 +80,11 @@ header:hover #right-ear {
           transform: rotate(-30deg) translate(-20%, -38%); }
 
 header {
-  padding: 5em 0 2em 0; }
+  padding: 5em 0 2em 0;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none; }
 
 #logo {
   font-family: "voltage", Snell Roundhand, cursive;
@@ -94,3 +98,6 @@ header {
   display: block;
   margin-top: 1em;
   text-align: center; }
+
+picture img {
+  width: 100%; }

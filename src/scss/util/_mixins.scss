@@ -1,8 +1,7 @@
 // Map for the main mediq query breakpoints
 $breakpoints: (
-	small  : 30em,
-	medium : 65em,
-	large  : 90em
+	medium : 35em,
+	large  : 50em
 );
 // Mediq Query for Responsive Design
 @mixin mq($mq-breakpoint) {

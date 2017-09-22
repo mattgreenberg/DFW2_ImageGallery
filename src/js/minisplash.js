@@ -3,7 +3,7 @@
 	Author : Matt Greenberg
 */
 
-var minsplash = (function(){
+(function(window, document, undefined){
 
 	/*
 		DEFAULT CONSTRUCTOR
@@ -71,8 +71,8 @@ var minsplash = (function(){
 	}
 
 	/*
-		Return a 'new' Unspalsh library object
+		Expose Unspalsh library object
 	*/
-	return new Minsplash();
+	window.unsplash = new Minsplash();
 
-})();
+})(window, document);

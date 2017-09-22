@@ -38,7 +38,8 @@ GULP.task('scss', ()=>{
 GULP.task('browser-sync', ()=>{
 	BROWSERSYNC.init({
 		server: {
-			baseDir: './'
+			baseDir: './',
+			https: true
 		}
 	});
 });

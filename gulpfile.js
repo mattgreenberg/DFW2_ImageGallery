@@ -56,6 +56,6 @@ GULP.task('scripts', ()=>{
 
 // Watch SCSS for changes
 GULP.task('watch', ['scripts', 'browser-sync', 'scss'], function(){
-	GULP.watch('./scss/**/*.scss', ['scss']);
+	GULP.watch('./src/scss/**/*.scss', ['scss']);
 });
 	  

@@ -3,6 +3,9 @@ html, body{
 	background: $main-bkg-color;
 	min-width: 320px;
 }
+body{
+	padding: 0 1em;
+}
 *{
 	box-sizing: border-box;
 }

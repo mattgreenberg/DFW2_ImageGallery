@@ -1,5 +1,5 @@
 /*
-	Load the images
+	Main script to load the images
 	by : Matthew Greenberg
 */
 
@@ -15,9 +15,14 @@ function bracket(template, data){
 	return html;
 }
 
-// template
-var picStruct = '<picture><source media="(max-width:300px)" srcset="{{small}}"/><source media="(max-width:600px)" srcset="{{medium}}"/><source media="(min-width:601px)" srcset="{{large}}"/><img src="{{small}}" alt="{{desc}}"/></picture>';
+/*
+	Template div.frame
+*/
+var pframe = '<div class="frame"><picture><source media="(max-width:300px)" srcset="{{small}}"/><source media="(max-width:600px)" srcset="{{medium}}"/><source media="(min-width:601px)" srcset="{{large}}"/><img src="{{small}}" alt="{{desc}}"/></picture><div class="overlay"><h2>{{by}}</h2><p class="likes">{{likes}}</p></div></div>';
 
+/*
+	Window load event
+*/
 window.addEventListener('load',function(){
 
 	unsplash.photoSearch('dog', function(data){
@@ -29,11 +34,13 @@ window.addEventListener('load',function(){
 			for(var i=0; i<9; i++){
 
 				var ele = pics[i].urls;
-				content.insertAdjacentHTML('afterbegin', bracket(picStruct,{
+				content.insertAdjacentHTML('afterbegin', bracket(pframe,{
 					small: ele.small,
 					medium: ele.regular,
 					large: ele.full,
-					desc: 'Photo of dog by ' + pics[i].user.name
+					desc: 'Photo of dog by ' + pics[i].user.name,
+					by: pics[i].user.name,
+					likes: pics[i].likes
 				}));
 
 			};

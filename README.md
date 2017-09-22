@@ -1,5 +1,8 @@
-# Responsive Photo Gallery
-Using the [Unspash API](https://unsplash.com/developers) to build a mobile first, responsive web page with nifty animations.
+# **Doggos & Puppers**
+
+Pictures of dogs! What else could you ask for?
+
+Page built using the [ensplash api](https://api.unsplash.com) to get pictures.
 
 ________
 

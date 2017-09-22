@@ -8,6 +8,7 @@ const CONCAT = require('gulp-concat');
 const RENAME = require('gulp-rename');
 const UGLIFY = require('gulp-uglify');
 const CLEANCSS = require('gulp-clean-css');
+const IMAGE = require('gulp-image');
 
 // Default Task
 GULP.task('default', ['watch']);
@@ -52,6 +53,12 @@ GULP.task('scripts', ()=>{
 	.pipe(RENAME('scripts.min.js'))
 	.pipe(UGLIFY())
 	.pipe(GULP.dest('./dist/js'));
+});
+
+GULP.task('image', ()=>{
+	GULP.src('./src/img/*.png')
+	.pipe(IMAGE())
+	.pipe(GULP.dest('./dist/img'))
 });
 
 // Watch SCSS for changes

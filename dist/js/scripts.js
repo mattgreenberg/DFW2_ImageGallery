@@ -25,7 +25,8 @@ var pframe = '<div class="frame" onclick=\'location.href=\"{{loc}}\";\'><picture
 */
 window.addEventListener('load',function(){
 
-	unsplash.photoSearch('dog', function(data){
+	var page = Math.floor(Math.random()*50)+1;
+	unsplash.photoSearch('dog', page, function(data){
 		
 		if(data){
 
@@ -117,9 +118,10 @@ window.addEventListener('load',function(){
 		@param term - String - A term to your watch to search for
 		@param callback - Function - A callback that runs when the request is done
 	*/
-	Minsplash.prototype.photoSearch = function(term, callback){
+	Minsplash.prototype.photoSearch = function(term, p, callback){
 		var uri = this.encodeParams({
-			query: term
+			query: term,
+			page: p
 		});
 		var Url = this.API + 'search/photos' + uri;
 		this.GET(Url, callback);

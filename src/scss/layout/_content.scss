@@ -11,6 +11,7 @@
 	border: 2px dotted #000;
 	overflow: hidden;
 	width: 100%;
+	cursor: pointer;
 	@include mq(medium){
 		width: 48%;
 		margin: 1%;
@@ -31,6 +32,9 @@
 .frame img{
 	width: 100%;
 	display: block;
+	@include mq(medium){
+		height: 100%;
+	}
 }
 .overlay h2,
 .overlay .likes{

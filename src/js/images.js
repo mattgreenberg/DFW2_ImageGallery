@@ -18,7 +18,7 @@ function bracket(template, data){
 /*
 	Template div.frame
 */
-var pframe = '<div class="frame"><picture><source media="(max-width:300px)" srcset="{{small}}"/><source media="(max-width:600px)" srcset="{{medium}}"/><source media="(min-width:601px)" srcset="{{large}}"/><img src="{{small}}" alt="{{desc}}"/></picture><div class="overlay"><h2>{{by}}</h2><p class="likes">{{likes}}</p></div></div>';
+var pframe = '<div class="frame" onclick=\'location.href=\"{{loc}}\";\'><picture><source media="(max-width:300px)" srcset="{{small}}"/><source media="(max-width:600px)" srcset="{{medium}}"/><source media="(min-width:601px)" srcset="{{large}}"/><img src="{{small}}" alt="{{desc}}"/></picture><div class="overlay"><h2>{{by}}</h2><p class="likes">{{likes}}</p></div></div>';
 
 /*
 	Window load event
@@ -29,6 +29,7 @@ window.addEventListener('load',function(){
 		
 		if(data){
 
+			console.dir(data);
 			var pics = data.results;
 			var content = document.getElementById('content');
 			for(var i=0; i<9; i++){
@@ -40,8 +41,10 @@ window.addEventListener('load',function(){
 					large: ele.full,
 					desc: 'Photo of dog by ' + pics[i].user.name,
 					by: pics[i].user.name,
-					likes: pics[i].likes
+					likes: pics[i].likes,
+					loc: pics[i].user.links.html
 				}));
+				console.log(pics[i].user.links.html);
 
 			};
 
